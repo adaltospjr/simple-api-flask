@@ -38,11 +38,9 @@ def ler_ceps():
     try:
         # remova o "pass" e escreva seu código aqui, após ler, converter os dados para lista.
         # retorne o mesmo usando o "return nome_da_variável_lista"
-        with open(file="ceps.txt", mode="r", encoding="utf-8") as file:
-         ceps = file.read()
-        file.close()
-        cep = ceps.split()
-        return cep
+        with open(file="./ceps.txt", mode="r", encoding="utf-8") as file:
+            ceps = file.read().split("\n")
+        return ceps
     except Exception as error:
         print(error)
         # caso dê erro eu vou retornar uma lista vazia
