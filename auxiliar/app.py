@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 # ---------------------------- Instruções ---------------------------------
 
@@ -34,12 +34,13 @@ def ler_ceps():
     # Conteúdo e por fim crie uma variavel que irá receber a lista que você irá gerar com
     # o .split após ler o arquivo.
     # Veja o arquivo ler_escrever_adicionar.py dentro da pasta help.
-    with open(file="ceps.txt", mode="r", encoding="utf-8") as file:
-                ceps = file.read()
-                file.close()
+
     try:
         # remova o "pass" e escreva seu código aqui, após ler, converter os dados para lista.
         # retorne o mesmo usando o "return nome_da_variável_lista"
+        with open(file="ceps.txt", mode="r", encoding="utf-8") as file:
+         ceps = file.read()
+        file.close()
         cep = ceps.split()
         return cep
     except Exception as error:
@@ -48,7 +49,7 @@ def ler_ceps():
         return []
 
 
-@app.route("/ler")
+@app.route("/ler/")
 def ler():
     # logo de cara vou chamar a função que me retorna todos os ceps
     # que estão no meu arquivo ceps.txt, essa função irá me retorna uma lista.
@@ -76,9 +77,8 @@ def adicionar_cep(cep):
         # Seu código irá aqui. Apague o "pass" e digite seu código antes do return True.
         # Caso o seu código esteja correto ele irá retornar o True,
         # Caso dê erro irá printar o erro e retornar False.
-        with open(file="ceps.txt", mode="a", encoding="utf-8") as file:
-            cep = f"\n{cep}"
-            file.write(cep)
+        with open(file="./ceps.txt", mode="a", encoding="utf-8") as file:
+            file.write(f"\n{cep}")
         return(True)
     except Exception as error:
         # irei printar o erro que aconteceu.
@@ -87,14 +87,15 @@ def adicionar_cep(cep):
         return False
 
 
-@app.route("/adicionar")
+@app.route("/adicionar/")
 def adicionar():
     # eu criei a variável meu_cep com o valor do tipo str.
-    meu_cep = "05571-100"
+    meu_cep = "05571-500"
+    data = request.args.to_dict()
     # estou chamando a função que você irá implementar, para salvar o cep.
     # após executar será retornado um booleano.
+    meu_cep = data["cep"]
     verificador = adicionar_cep(cep=meu_cep)
-
     # vou verificar se deu certo, se o retorno da função for igual a true é porque foi inserido.
     if verificador == True:
         # eu vou retornar para o navegar uma mensagem.
