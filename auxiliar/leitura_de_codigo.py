@@ -1,6 +1,6 @@
 casais = {
     "masculino": ["Miguel", "Arthur", "Bernardo", "Heitor", "Davi", "Lorenzo", "Théo", "Pedro", "Gabriel", "Enzo", ],
-    "feminino": ["Alice", "Sophia", "Helena", "Sofia", "Laura", "Isabella", "Manuela", "Júlia", "Heloísa", "Luiza", ],
+    "feminino": ["Arthur", "Sophia", "Helena", "Miguel", "Laura", "Isabella", "Manuela", "Júlia", "Heloísa", "Luiza", ],
     "qtde_de_filhos": [2, 3, 5, 1, 2, 1, 0, 5, 0, 6]
 }
 # está sendo declarado o dicionário e atribuindo os valores para a variável casais.
