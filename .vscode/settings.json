@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/adalto/.cache/pypoetry/virtualenvs/simple-api-flask-U-zxk8U4-py3.8/"
+    "python.pythonPath": "/home/adalto/.cache/pypoetry/virtualenvs/simple-api-flask-U-zxk8U4-py3.8/",
+    "python.formatting.provider": "autopep8"
 }
